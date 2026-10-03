@@ -1,0 +1,190 @@
+/* ios26.css — iOS 26 "Liquid Glass" look for the customer shop. Loads LAST. */
+:root{
+  --ios-font:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display",Inter,system-ui,sans-serif;
+  --ios-round:ui-rounded,"SF Pro Rounded",-apple-system,BlinkMacSystemFont,Inter,system-ui,sans-serif;
+  --i-tint:#ff8a3d; --i-tint2:#ff4f7b;
+  --i-fill:rgba(255,255,255,.26);
+  --i-sheen:linear-gradient(155deg,rgba(255,255,255,.66) 0%,rgba(255,255,255,.16) 32%,rgba(255,255,255,0) 54%,rgba(255,255,255,.22) 100%);
+  --i-rim:inset 0 0 0 1px rgba(255,255,255,.5),inset 0 1.5px 0 rgba(255,255,255,.98),inset 0 -1.5px 0 rgba(255,255,255,.4),inset 0 16px 24px -14px rgba(255,255,255,.8),inset 0 -16px 24px -16px rgba(255,255,255,.3);
+  --i-drop:0 14px 34px rgba(70,30,20,.17),0 2px 8px rgba(70,30,20,.08);
+  --i-blur:blur(22px) saturate(210%) brightness(1.07);
+}
+[data-theme=dark]{
+  --i-fill:rgba(70,48,38,.38);
+  --i-sheen:linear-gradient(155deg,rgba(255,255,255,.26) 0%,rgba(255,255,255,.05) 34%,rgba(255,255,255,0) 56%,rgba(255,255,255,.08) 100%);
+  --i-rim:inset 0 0 0 1px rgba(255,255,255,.16),inset 0 1.5px 0 rgba(255,255,255,.42),inset 0 -1.5px 0 rgba(255,255,255,.08),inset 0 16px 24px -16px rgba(255,255,255,.3);
+  --i-drop:0 14px 34px rgba(0,0,0,.45);
+  --i-blur:blur(24px) saturate(180%) brightness(.95);
+}
+
+/* wallpaper the glass refracts */
+html{background:#ffd9c0}
+body{font-family:var(--ios-font)!important;-webkit-font-smoothing:antialiased;letter-spacing:-.01em;padding-bottom:118px;
+  background:radial-gradient(900px 600px at 8% 0%,#ffd0a6 0,transparent 60%),radial-gradient(800px 600px at 100% 20%,#ffb7cb 0,transparent 55%),radial-gradient(900px 700px at 40% 100%,#bcd3ff 0,transparent 60%),#fff1e4 fixed!important}
+[data-theme=dark] body{background:radial-gradient(900px 600px at 8% 0%,#4a2b1b 0,transparent 60%),radial-gradient(800px 600px at 100% 20%,#4a1f33 0,transparent 55%),radial-gradient(900px 700px at 40% 100%,#1d2b4d 0,transparent 60%),#150f0c fixed!important}
+body::before{opacity:.1!important}
+h1,h2,h3,.brand,.drawer-head h2,.bn-s h2,.price{font-family:var(--ios-round)!important;letter-spacing:-.02em}
+h1{font-weight:800!important}
+
+/* ---------- the glass recipe ---------- */
+.card,.perks div,.chip,.toolbar select,.vt,.opt,.ord,.slots button,.fav-btn,.share,.search input,.stepper,.cpn input,#sug,.line,#favBtn,#theme,
+.icon-btn,.tabs button,.radio,.admin-link,.link-back,.hbtn.ghost,.modal form input,.modal form textarea,#checkoutView input[type=text],#checkoutView input[type=tel],#checkoutView input[type=datetime-local],#checkoutView textarea,.stepper button,#mic,#addons .ad,.hrow .mini{
+  background:radial-gradient(230px circle at var(--mx,30%) var(--my,0%),rgba(255,255,255,.62),transparent 62%),var(--i-sheen),var(--i-fill)!important;
+  -webkit-backdrop-filter:var(--i-blur);backdrop-filter:var(--i-blur);
+  border:1px solid rgba(255,255,255,.38)!important;box-shadow:var(--i-rim),var(--i-drop)!important;color:var(--text)}
+.card{border-radius:30px!important;padding:.5rem;transition:transform .45s cubic-bezier(.2,1.5,.4,1),box-shadow .3s}
+.card:hover{animation:none!important;transform:translateY(-5px) scale(1.012)}
+.card:active{transform:scale(.97)}
+.card .pic{border-radius:22px!important;box-shadow:inset 0 0 0 1px rgba(255,255,255,.5),0 6px 16px rgba(70,30,20,.15)}
+.card .info{padding:.8rem .5rem .5rem!important}
+.card h3{font-weight:700;font-size:1.05rem}
+.price{font-weight:800}
+.perks div,.vt,.toolbar select,.opt,.ord,.line,.search input{border-radius:22px!important}
+.chip,.fav-btn,.share,.admin-link,.link-back,.hbtn.ghost,#favBtn,#theme,.slots button,#mic{border-radius:999px!important}
+.stepper{border-radius:999px!important;padding:.2rem!important}
+.stepper button{border-radius:50%!important}
+.search input{border-radius:999px!important;padding-left:2.6rem}
+.heart,.tag{border-radius:999px;background:rgba(255,255,255,.62)!important;border:1px solid rgba(255,255,255,.7)!important;-webkit-backdrop-filter:blur(14px) saturate(200%);backdrop-filter:blur(14px) saturate(200%);box-shadow:inset 0 1.5px 0 #fff,0 4px 12px rgba(0,0,0,.14)!important}
+.tag.out{background:rgba(192,57,43,.82)!important;color:#fff}
+
+/* prominent (tinted) glass buttons */
+.cart-btn,.add,.btn,.hbtn:not(.ghost),.buy,#cbar button,.cpn button{
+  background:linear-gradient(180deg,rgba(255,255,255,.62) 0%,rgba(255,255,255,.08) 50%,rgba(255,255,255,0) 51%,rgba(255,255,255,.14) 100%),linear-gradient(135deg,var(--i-tint),var(--i-tint2))!important;
+  color:#fff!important;border:1px solid rgba(255,255,255,.65)!important;text-shadow:0 1px 2px rgba(120,40,0,.35);
+  box-shadow:inset 0 1.5px 0 rgba(255,255,255,.95),inset 0 -2px 5px rgba(150,40,0,.28),0 8px 22px rgba(255,100,60,.38)!important;
+  border-radius:999px!important;font-weight:700;transition:transform .35s cubic-bezier(.2,1.6,.4,1),filter .2s}
+.add{background:linear-gradient(180deg,rgba(255,255,255,.7),rgba(255,255,255,.1) 55%),rgba(255,255,255,.35)!important;color:#c25a12!important;text-shadow:none;box-shadow:var(--i-rim),0 4px 14px rgba(70,30,20,.14)!important;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.add:disabled{color:#999!important;opacity:.7}
+.cart-btn:hover,.add:hover,.btn:hover,.buy:hover{filter:brightness(1.06) saturate(1.1)}
+.cart-btn:active,.add:active,.btn:active,.buy:active,.chip:active{transform:scale(.93)!important}
+.cart-count{background:#fff!important;color:#d9480f!important;box-shadow:0 2px 6px rgba(0,0,0,.2)}
+.buy{display:flex;align-items:center;justify-content:center;gap:.45rem;width:100%;padding:.62rem 1rem;margin-top:.55rem;font-size:.9rem;cursor:pointer}
+.pm-actions .buy{width:auto;margin:0;padding:.6rem 1.3rem}
+
+/* ---------- floating header capsule ---------- */
+.shop-header{top:10px!important;width:calc(100% - 20px);max-width:1120px;margin:10px auto 0;border-radius:999px;color:var(--text)!important;
+  background:radial-gradient(400px circle at 20% 0,rgba(255,255,255,.7),transparent 60%),var(--i-sheen),rgba(255,255,255,.3)!important;
+  -webkit-backdrop-filter:var(--i-blur);backdrop-filter:var(--i-blur);border:1px solid rgba(255,255,255,.45)!important;box-shadow:var(--i-rim),var(--i-drop)!important}
+[data-theme=dark] .shop-header{background:var(--i-sheen),rgba(60,42,32,.45)!important}
+.shop-header .wrap{padding:0 .9rem}
+.header-row{height:58px}
+.brand{color:var(--text)!important;font-weight:800}
+.mark{background:linear-gradient(135deg,var(--i-tint),var(--i-tint2))!important;border-radius:14px!important;box-shadow:inset 0 1.5px 0 rgba(255,255,255,.9),0 4px 10px rgba(255,100,60,.4);color:#fff}
+.admin-link,.hbtn,.hi{color:var(--text)}
+.hbtn:not(.ghost){color:#fff}
+
+/* ---------- hero as an inset glass-wrapped widget ---------- */
+.hero{margin:12px 10px 0!important;border-radius:40px!important;overflow:hidden;box-shadow:inset 0 0 0 1px rgba(255,255,255,.5),inset 0 2px 0 rgba(255,255,255,.7),var(--i-drop);padding:3rem 0 2.2rem!important}
+@media(min-width:1160px){.hero{margin:12px auto 0!important;max-width:1140px}}
+.hero h1,.hero p{text-shadow:0 2px 16px rgba(0,0,0,.35)}
+.bn,.mq{border-radius:30px}
+.mq{margin:1rem 10px 0;border-block:0!important}
+.bn{box-shadow:inset 0 0 0 1px rgba(255,255,255,.55),var(--i-drop)!important}
+
+/* ---------- categories: iOS segmented rail with icons ---------- */
+.chips{display:flex!important;flex-wrap:nowrap!important;gap:.5rem;overflow-x:auto;padding:.7rem .15rem .5rem;scrollbar-width:none;-webkit-overflow-scrolling:touch;scroll-snap-type:x proximity}
+.chips::-webkit-scrollbar{display:none}
+.chips .chip{flex:0 0 auto;display:inline-flex;align-items:center;gap:.45rem;padding:.55rem 1rem;font-weight:600;white-space:nowrap;scroll-snap-align:start;cursor:pointer}
+.chips .chip i{font-size:.9rem;color:#d9480f}
+.chips .chip small{opacity:.6;font-weight:600;font-size:.72rem}
+.chip.active,.chip.on{background:linear-gradient(180deg,rgba(255,255,255,.5),rgba(255,255,255,0) 55%),linear-gradient(135deg,var(--i-tint),var(--i-tint2))!important;color:#fff!important;border-color:rgba(255,255,255,.7)!important;box-shadow:inset 0 1.5px 0 #fff,0 8px 20px rgba(255,100,60,.4)!important}
+.chip.active i,.chip.on i{color:#fff}
+.cat-t span{border:2px solid rgba(255,255,255,.75)!important;box-shadow:inset 0 2px 0 #fff,var(--i-drop)}
+
+/* ---------- drawer / modals as floating sheets ---------- */
+.drawer{top:10px!important;right:10px!important;height:calc(100% - 20px)!important;width:min(430px,calc(100% - 20px))!important;border-radius:36px;overflow:hidden;
+  transform:translateX(112%);transition:transform .5s cubic-bezier(.2,1.1,.3,1)!important;
+  background:var(--i-sheen),rgba(255,255,255,.55)!important;-webkit-backdrop-filter:blur(34px) saturate(210%);backdrop-filter:blur(34px) saturate(210%);border:1px solid rgba(255,255,255,.55)!important;box-shadow:var(--i-rim),0 24px 80px rgba(60,20,10,.38)!important}
+.drawer.open{transform:none}
+[data-theme=dark] .drawer{background:var(--i-sheen),rgba(30,20,15,.62)!important}
+.modal-box{border-radius:38px!important;background:var(--i-sheen),rgba(255,255,255,.6)!important;-webkit-backdrop-filter:blur(34px) saturate(210%);backdrop-filter:blur(34px) saturate(210%);border:1px solid rgba(255,255,255,.6)!important;box-shadow:var(--i-rim),0 30px 90px rgba(60,20,10,.4)!important}
+[data-theme=dark] .modal-box{background:var(--i-sheen),rgba(30,20,15,.66)!important}
+.modal.open .modal-box{animation:iosPop .55s cubic-bezier(.2,1.4,.4,1)}
+@keyframes iosPop{from{transform:scale(.86) translateY(24px);opacity:0}to{transform:none;opacity:1}}
+.pm .pic{border-radius:30px;margin:.6rem;box-shadow:inset 0 0 0 1px rgba(255,255,255,.5)}
+.overlay,.modal{background:rgba(40,18,8,.28)!important}
+.toast{bottom:104px!important;border-radius:999px!important;background:var(--i-sheen),rgba(40,28,22,.55)!important;color:#fff}
+#totop{bottom:104px!important;border-radius:50%!important}
+#cbar{display:none!important}
+.shop-footer{margin:2rem 10px 0;border-radius:34px;max-width:1120px}
+@media(min-width:1160px){.shop-footer{margin:2rem auto 0}}
+
+/* ---------- floating tab bar with a sliding glass lens ---------- */
+#lgbar{position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:45;display:flex;align-items:center;gap:2px;padding:6px;width:min(430px,calc(100% - 24px));border-radius:999px;
+  background:radial-gradient(300px circle at 50% 0,rgba(255,255,255,.55),transparent 70%),var(--i-sheen),rgba(255,255,255,.28);
+  -webkit-backdrop-filter:blur(26px) saturate(220%) brightness(1.08);backdrop-filter:blur(26px) saturate(220%) brightness(1.08);
+  border:1px solid rgba(255,255,255,.5);box-shadow:var(--i-rim),0 18px 50px rgba(60,20,10,.28)}
+[data-theme=dark] #lgbar{background:var(--i-sheen),rgba(50,34,26,.5)}
+#lgbar .lens{position:absolute;top:6px;bottom:6px;left:0;border-radius:999px;pointer-events:none;
+  background:linear-gradient(180deg,rgba(255,255,255,.75),rgba(255,255,255,.2)),rgba(255,255,255,.3);
+  box-shadow:inset 0 1.5px 0 #fff,inset 0 -1px 2px rgba(255,255,255,.5),0 6px 16px rgba(60,20,10,.2);
+  transition:transform .55s cubic-bezier(.2,1.35,.35,1),width .55s cubic-bezier(.2,1.35,.35,1)}
+#lgbar button{position:relative;z-index:1;flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;border:0;background:none;color:var(--text);opacity:.72;padding:.45rem 0 .38rem;font-size:.66rem;font-weight:700;letter-spacing:0;border-radius:999px;transition:color .25s,opacity .25s,transform .35s cubic-bezier(.2,1.6,.4,1)}
+#lgbar button i{font-size:1.15rem}
+#lgbar button.on{opacity:1;color:#d9480f}
+#lgbar button:active{transform:scale(.88)}
+#lgbar .bdg{position:absolute;top:2px;left:calc(50% + 6px);min-width:18px;height:18px;border-radius:99px;background:linear-gradient(135deg,var(--i-tint),var(--i-tint2));color:#fff;font-size:.65rem;display:grid;place-items:center;padding:0 4px;box-shadow:0 2px 6px rgba(255,80,60,.5),inset 0 1px 0 rgba(255,255,255,.7)}
+#lgbar .bdg:empty,#lgbar .bdg[data-n="0"]{display:none}
+
+/* ---------- inputs / focus ---------- */
+input,textarea,select{font-family:inherit}
+#checkoutView input,#checkoutView textarea,.modal form input,.modal form textarea{border-radius:18px!important}
+:focus-visible{outline:3px solid rgba(255,138,61,.55);outline-offset:2px}
+
+/* real refraction in Chromium (uses #lg filter from shop-glass.js) */
+.lg-r #lgbar,.lg-r .shop-header{-webkit-backdrop-filter:blur(6px) url(#lg) saturate(220%);backdrop-filter:blur(6px) url(#lg) saturate(220%)}
+
+@media(max-width:480px){.card{border-radius:26px!important;padding:.4rem}.card .pic{border-radius:18px!important}.buy{padding:.55rem .6rem;font-size:.82rem}.shop-header{border-radius:30px}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+@media(prefers-reduced-transparency:reduce){.card,.shop-header,#lgbar,.drawer,.modal-box{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(255,255,255,.92)!important}}
+
+/* ===== v7.1: make the glass actually READ as glass — vivid scene behind, clearer glass in front ===== */
+:root{
+  --i-fill:rgba(255,255,255,.10);
+  --i-sheen:linear-gradient(150deg,rgba(255,255,255,.55) 0%,rgba(255,255,255,.10) 26%,rgba(255,255,255,0) 50%,rgba(255,255,255,.04) 72%,rgba(255,255,255,.34) 100%);
+  --i-blur:blur(16px) saturate(240%) brightness(1.1) contrast(1.04);
+}
+body{background:
+  radial-gradient(60vmax 50vmax at 0% 0%,#ff9a3c 0,transparent 60%),
+  radial-gradient(55vmax 45vmax at 100% 8%,#ff4f9a 0,transparent 58%),
+  radial-gradient(60vmax 50vmax at 85% 100%,#4f8bff 0,transparent 60%),
+  radial-gradient(50vmax 40vmax at 5% 95%,#35d0a0 0,transparent 58%),
+  #ffc89a fixed!important}
+[data-theme=dark] body{background:
+  radial-gradient(60vmax 50vmax at 0% 0%,#a14a14 0,transparent 60%),
+  radial-gradient(55vmax 45vmax at 100% 8%,#9b1f5c 0,transparent 58%),
+  radial-gradient(60vmax 50vmax at 85% 100%,#1f4ab0 0,transparent 60%),
+  radial-gradient(50vmax 40vmax at 5% 95%,#12806a 0,transparent 58%),
+  #1a110d fixed!important}
+#orbs i{opacity:.85!important;filter:blur(38px)!important;width:34vmax!important;height:34vmax!important}
+#orbs i:nth-child(1){background:#ffd23c!important;left:8vw!important;top:18vh!important}
+#orbs i:nth-child(2){background:#ff3d8b!important;right:4vw!important;top:46vh!important}
+#orbs i:nth-child(3){background:#3d7bff!important;left:38vw!important;bottom:4vh!important;opacity:.7!important}
+[data-theme=dark] #orbs i{opacity:.55!important}
+
+/* clearer, less milky glass; brighter specular rim = the "liquid" edge */
+.card,.perks div,.chip,.toolbar select,.vt,.opt,.ord,.slots button,.fav-btn,.share,.search input,.stepper,.cpn input,#sug,.line,#favBtn,#theme,
+.icon-btn,.tabs button,.radio,.admin-link,.link-back,.hbtn.ghost,.modal form input,.modal form textarea,#checkoutView input[type=text],#checkoutView input[type=tel],#checkoutView input[type=datetime-local],#checkoutView textarea,.stepper button,#mic,#addons .ad,.hrow .mini{
+  background:radial-gradient(200px circle at var(--mx,28%) var(--my,0%),rgba(255,255,255,.5),transparent 60%),var(--i-sheen),var(--i-fill)!important}
+.card .info h3,.card .cat,.perks b,.perks small{text-shadow:0 1px 8px rgba(255,255,255,.55)}
+.shop-header{background:radial-gradient(380px circle at 18% 0,rgba(255,255,255,.55),transparent 60%),var(--i-sheen),rgba(255,255,255,.10)!important}
+[data-theme=dark] .shop-header{background:var(--i-sheen),rgba(255,255,255,.06)!important}
+#lgbar{background:radial-gradient(280px circle at 50% 0,rgba(255,255,255,.5),transparent 70%),var(--i-sheen),rgba(255,255,255,.10)!important}
+.drawer{background:var(--i-sheen),rgba(255,255,255,.28)!important}
+.modal-box{background:var(--i-sheen),rgba(255,255,255,.34)!important}
+[data-theme=dark] .drawer{background:var(--i-sheen),rgba(30,20,15,.4)!important}
+[data-theme=dark] .modal-box{background:var(--i-sheen),rgba(30,20,15,.45)!important}
+.perks div,.stats div{border-radius:26px!important}
+.hero{margin-top:22px!important}
+.mq{background:linear-gradient(180deg,rgba(255,255,255,.45),rgba(255,255,255,0) 60%),rgba(255,140,40,.45)!important}
+.bn-s{background-blend-mode:soft-light}
+.bn{background:var(--i-sheen)}
+.card .pic{box-shadow:inset 0 0 0 1px rgba(255,255,255,.7),inset 0 2px 0 rgba(255,255,255,.9),0 8px 18px rgba(70,30,20,.2)}
+.cat-t span{background-size:cover!important;background-position:center!important;box-shadow:inset 0 2px 0 rgba(255,255,255,.9),inset 0 0 0 1px rgba(255,255,255,.5),0 10px 24px rgba(70,30,20,.25)!important;border:2px solid rgba(255,255,255,.85)!important}
+#lgbar .bdg{left:calc(50% + 12px);top:0}
+@media(max-width:640px){
+  .brand{white-space:nowrap;font-size:1.05rem;gap:.45rem}
+  .mark{width:30px;height:30px}
+  .shop-header .cart-btn,.shop-header .admin-link,#authArea .hbtn:not(.ghost),#authArea .hi{display:none!important}
+  .hdr-right{gap:.35rem}
+}

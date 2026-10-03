@@ -1,0 +1,61 @@
+/* shop-style.css — photo backgrounds, unique look, dark mode */
+@keyframes kb{from{transform:scale(1.05)}to{transform:scale(1.2) translate(-2%,-1%)}}
+@keyframes mq{to{transform:translateX(-50%)}}
+@keyframes spl{0%{transform:scale(.4);opacity:0}60%{transform:scale(1.12)}100%{transform:scale(1);opacity:1}}
+@keyframes bounce{50%{transform:translateY(-14px)}}
+@keyframes fadeW{0%,100%{opacity:1;transform:none}45%,55%{opacity:0;transform:translateY(8px)}}
+body::before{content:'';position:fixed;inset:0;z-index:-1;background:url(../images/bread.jpg) center/cover;opacity:.08;filter:blur(2px)}
+[data-theme=dark] body::before{opacity:.14}
+
+/* splash */
+#splash{position:fixed;inset:0;background:var(--dark);z-index:500;display:grid;place-items:center;text-align:center;color:#fff;transition:opacity .6s .2s,visibility .6s .2s}
+#splash.out{opacity:0;visibility:hidden}
+#splash i{font-size:3.4rem;color:var(--primary);display:block;animation:spl .7s both,bounce 1s .7s infinite}
+#splash b{font-family:'Fraunces',serif;font-size:1.7rem;display:block;margin-top:.6rem;animation:spl .7s .15s both}
+
+/* hero photo slideshow */
+.hero{background:var(--dark)!important;animation:none!important;padding:3.4rem 0 2.6rem;border:0}
+.hero-bg{position:absolute;inset:-6%;z-index:0}
+.hero-bg div{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;filter:blur(2px) brightness(.75) saturate(1.2);transition:opacity 1.6s;animation:kb 14s ease-in-out infinite alternate}
+.hero-bg div.on{opacity:1}
+.hero:after{content:'';position:absolute;inset:0;z-index:0;background:linear-gradient(90deg,rgba(43,27,22,.92),rgba(43,27,22,.45) 70%,rgba(43,27,22,.7))}
+.hero h1,.hero p{color:#fff}.hero em{color:#F3C277;display:inline-block;transition:.4s}.hero em.sw{animation:fadeW .5s}
+.hero p{opacity:.85}
+.fl{color:#fff!important;z-index:1}
+.search input{box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.hero .tagline{display:inline-block;background:rgba(255,255,255,.15);backdrop-filter:blur(8px);color:#F3C277;border:1px solid rgba(255,255,255,.25);padding:.3rem .9rem;border-radius:999px;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.9rem}
+
+/* marquee */
+.mq{background:var(--primary);color:#fff;overflow:hidden;white-space:nowrap;padding:.55rem 0;font-weight:600;font-size:.85rem;letter-spacing:.06em}
+.mq div{display:inline-block;animation:mq 28s linear infinite}.mq span{margin:0 1.6rem}.mq i{margin-right:.5rem;opacity:.8}
+.mq:hover div{animation-play-state:paused}
+
+/* glass */
+.shop-header{background:rgba(43,27,22,.82)!important;backdrop-filter:blur(14px)}
+.perks div,.chip,.toolbar select{background:rgba(255,255,255,.7);backdrop-filter:blur(8px)}
+.chip.active{background:var(--dark)}
+
+/* category photo tiles */
+.cats{display:flex;gap:1.1rem;overflow-x:auto;padding:1.4rem 0 .2rem;scrollbar-width:none}
+.cats::-webkit-scrollbar{display:none}
+.cat-t{flex:0 0 auto;text-align:center;border:0;background:none;width:84px;font-size:.8rem;font-weight:600;color:var(--text)}
+.cat-t span{display:block;width:76px;height:76px;margin:0 auto .4rem;border-radius:50%;background-size:cover;background-position:center;border:3px solid #fff;box-shadow:var(--shadow);transition:.3s}
+.cat-t:hover span,.cat-t.on span{transform:scale(1.12) rotate(-4deg);border-color:var(--primary);box-shadow:var(--lift)}
+
+/* cards */
+.card{transform-style:preserve-3d;will-change:transform}
+.card:hover{box-shadow:0 22px 44px rgba(43,27,22,.22)}
+.best{position:absolute;left:.6rem;bottom:.6rem;background:linear-gradient(90deg,#d6336c,#f08c00);color:#fff;font-size:.68rem;font-weight:700;padding:.2rem .6rem;border-radius:999px;z-index:2;box-shadow:0 4px 10px rgba(0,0,0,.25)}
+.shine{position:absolute;inset:0;background:linear-gradient(110deg,transparent 40%,rgba(255,255,255,.35) 50%,transparent 60%);transform:translateX(-120%);transition:transform .7s;pointer-events:none}
+.card:hover .shine{transform:translateX(120%)}
+.share{border:1px solid var(--line);background:#fff;border-radius:999px;padding:.5rem 1rem;font-weight:600;font-size:.85rem;text-decoration:none;color:#25a244}
+
+/* theme toggle */
+#theme{width:36px;height:36px;border-radius:50%;border:1px solid #6b5546;background:transparent;color:#F3C277;transition:.4s}
+#theme:hover{transform:rotate(25deg) scale(1.1)}
+[data-theme=dark]{--bg:#1a120e;--surface:#2a1d17;--line:#42301f;--text:#f3e7d6;--muted:#b3a08a;--primary-light:#4a3320}
+[data-theme=dark] .drawer,[data-theme=dark] .modal-box,[data-theme=dark] .hrow .mini,[data-theme=dark] #sug,[data-theme=dark] #sug button,[data-theme=dark] .perks div,[data-theme=dark] .chip,[data-theme=dark] .toolbar select,[data-theme=dark] .fav-btn,[data-theme=dark] .share,[data-theme=dark] .stepper button,[data-theme=dark] .cat-t span{background:var(--surface);color:var(--text);border-color:var(--line)}
+[data-theme=dark] .chip.active{background:var(--primary)}
+[data-theme=dark] input,[data-theme=dark] textarea{background:#1f1511!important;color:var(--text)!important}
+[data-theme=dark] .icon-btn{background:#3a2a20;color:#fff}
+[data-theme=dark] .card .info h3,[data-theme=dark] .price{color:var(--text)}

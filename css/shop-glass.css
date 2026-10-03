@@ -1,0 +1,73 @@
+/* shop-glass.css — liquid glass (loads last, overrides earlier backgrounds) */
+@keyframes drift{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(12vw,8vh) scale(1.15)}66%{transform:translate(-8vw,14vh) scale(.9)}}
+@keyframes liq{0%,100%{border-radius:16px}25%{border-radius:26px 14px 22px 16px}50%{border-radius:14px 24px 16px 26px}75%{border-radius:22px 16px 28px 14px}}
+:root{--g-bg:rgba(255,255,255,.34);--g-line:rgba(255,255,255,.6);--g-hi:rgba(255,255,255,.95);
+  --g-shadow:0 8px 32px rgba(43,27,22,.14);
+  --g-in:inset 0 1.5px 1px var(--g-hi),inset 0 -1px 1px rgba(255,255,255,.3),inset 0 0 26px rgba(255,255,255,.28)}
+[data-theme=dark]{--g-bg:rgba(60,42,32,.42);--g-line:rgba(255,255,255,.16);--g-hi:rgba(255,255,255,.35);--g-shadow:0 8px 32px rgba(0,0,0,.4)}
+
+/* floating colour orbs so the glass has something to refract */
+#orbs{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+#orbs i{position:absolute;width:48vmax;height:48vmax;border-radius:50%;filter:blur(70px);opacity:.5;animation:drift 22s ease-in-out infinite}
+#orbs i:nth-child(1){background:#f2a65a;left:-12vmax;top:5vh}
+#orbs i:nth-child(2){background:#e8758a;right:-14vmax;top:30vh;animation-delay:-7s}
+#orbs i:nth-child(3){background:#8fd19e;left:25vw;bottom:-22vmax;animation-delay:-14s;opacity:.38}
+[data-theme=dark] #orbs i{opacity:.28}
+body::before{opacity:.18}
+
+/* the glass recipe */
+.card,.perks div,.chip,.hbtn.ghost,.toolbar select,.vt,.opt,.hrow .mini,.ord,.slots button,.fav-btn,.share,.search input,.stepper,.cpn input,#sug,.line,#favBtn,#theme{
+  background:radial-gradient(260px circle at var(--mx,50%) var(--my,0%),rgba(255,255,255,.55),transparent 62%),var(--g-bg)!important;
+  -webkit-backdrop-filter:blur(18px) saturate(185%);backdrop-filter:blur(18px) saturate(185%);
+  border:1px solid var(--g-line)!important;box-shadow:var(--g-in),var(--g-shadow)!important}
+[data-theme=dark] .card,[data-theme=dark] .perks div,[data-theme=dark] .chip,[data-theme=dark] .toolbar select,[data-theme=dark] .vt,[data-theme=dark] .opt,[data-theme=dark] .hrow .mini,[data-theme=dark] .fav-btn,[data-theme=dark] .search input{background:radial-gradient(260px circle at var(--mx,50%) var(--my,0%),rgba(255,255,255,.14),transparent 62%),var(--g-bg)!important;color:var(--text)}
+.card{transform-style:flat;overflow:hidden}
+.card:hover,.perks div:hover{animation:liq 4s ease-in-out infinite}
+.chip.active,.chip.on,.vt .on{background:rgba(43,27,22,.82)!important;color:#fff;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.cat-t span{border:2px solid var(--g-line)!important}
+
+/* header / bars / overlays */
+.shop-header{background:rgba(43,27,22,.42)!important;-webkit-backdrop-filter:blur(22px) saturate(190%);backdrop-filter:blur(22px) saturate(190%);border-bottom:1px solid rgba(255,255,255,.18);box-shadow:inset 0 -1px 1px rgba(255,255,255,.2),0 8px 30px rgba(0,0,0,.25)}
+.drawer{background:rgba(255,255,255,.72)!important;-webkit-backdrop-filter:blur(30px) saturate(180%);backdrop-filter:blur(30px) saturate(180%);border-left:1px solid var(--g-line);box-shadow:var(--g-in),-12px 0 40px rgba(0,0,0,.2)}
+.modal-box{background:rgba(255,255,255,.75)!important;-webkit-backdrop-filter:blur(30px) saturate(180%);backdrop-filter:blur(30px) saturate(180%);border:1px solid var(--g-line);box-shadow:var(--g-in),0 24px 70px rgba(0,0,0,.35)}
+[data-theme=dark] .drawer,[data-theme=dark] .modal-box{background:rgba(36,25,19,.7)!important;color:var(--text)}
+.overlay,.modal{-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.toast{background:rgba(43,27,22,.6)!important;-webkit-backdrop-filter:blur(16px) saturate(180%);backdrop-filter:blur(16px) saturate(180%);border:1px solid rgba(255,255,255,.25);box-shadow:var(--g-in)}
+#cbar{background:rgba(43,27,22,.55)!important;-webkit-backdrop-filter:blur(20px) saturate(180%);backdrop-filter:blur(20px) saturate(180%);border-top:1px solid rgba(255,255,255,.25)}
+.stats div{background:linear-gradient(135deg,rgba(43,27,22,.7),rgba(100,66,44,.5))!important;-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.22);box-shadow:var(--g-in),var(--g-shadow)}
+.tag,.heart{-webkit-backdrop-filter:blur(10px) saturate(180%);backdrop-filter:blur(10px) saturate(180%);box-shadow:inset 0 1px 1px rgba(255,255,255,.9),0 2px 8px rgba(0,0,0,.15)}
+.cart-btn,.add,.btn,.hbtn:not(.ghost){background-image:linear-gradient(180deg,rgba(255,255,255,.38),rgba(255,255,255,0) 55%);box-shadow:inset 0 1.5px 1px rgba(255,255,255,.7),inset 0 -2px 4px rgba(0,0,0,.12),0 6px 16px rgba(168,102,27,.35)}
+.add:active,.btn:active,.cart-btn:active{transform:scale(.92,.88);border-radius:22px}
+.add,.btn,.cart-btn,.chip{transition:transform .25s cubic-bezier(.3,1.6,.5,1),background .2s,border-radius .25s}
+
+/* optional: real refraction in Chromium via SVG displacement */
+.lg-r .shop-header,.lg-r #cbar,.lg-r .toast,.lg-r .perks div,.lg-r .drawer{-webkit-backdrop-filter:blur(7px) url(#lg) saturate(180%);backdrop-filter:blur(7px) url(#lg) saturate(180%)}
+@media(prefers-reduced-motion:reduce){#orbs i,.card:hover{animation:none!important}}
+
+/* ===== v6: glass on ALL remaining shop options ===== */
+:root{--g-fld:rgba(255,255,255,.42);--g-tint:rgba(201,129,45,.38)}
+[data-theme=dark]{--g-fld:rgba(60,42,32,.55);--g-tint:rgba(201,129,45,.45)}
+.icon-btn,.tabs button,.radio,#checkoutView input[type=text],#checkoutView input[type=tel],#checkoutView input[type=datetime-local],#checkoutView textarea,.modal form input,.modal form textarea,.opt input[type=text],.stepper button,.bn-a,.admin-link,.link-back,#totop,.hbtn.ghost,.cpn input,.err,#addons .ad,.hrow .mini,.sk{
+  background:var(--g-fld)!important;-webkit-backdrop-filter:blur(14px) saturate(180%);backdrop-filter:blur(14px) saturate(180%);
+  border:1px solid var(--g-line)!important;box-shadow:inset 0 1.5px 1px var(--g-hi),inset 0 0 16px rgba(255,255,255,.18),0 4px 14px rgba(43,27,22,.1)!important}
+.admin-link,.link-back,.hbtn.ghost{border-radius:999px}
+.tabs button.active{background:rgba(43,27,22,.78)!important;color:#fff}
+.radio:has(input:checked){background:var(--g-tint)!important;border-color:rgba(255,255,255,.8)!important}
+.err{background:rgba(192,57,43,.22)!important;color:#7a1d14}
+#checkoutView input:focus,#checkoutView textarea:focus,.modal form input:focus,.modal form textarea:focus{box-shadow:inset 0 1.5px 1px var(--g-hi),0 0 0 3px rgba(201,129,45,.35)!important}
+.drawer-head,.drawer-foot,.line{border-color:rgba(255,255,255,.4)!important}
+.drawer-head,.drawer-foot{background:rgba(255,255,255,.18)}
+.cpn button,.tag.out,#cbar button{background-image:linear-gradient(180deg,rgba(255,255,255,.35),transparent 55%);box-shadow:inset 0 1.5px 1px rgba(255,255,255,.6),0 6px 14px rgba(0,0,0,.25)}
+.tag,.tag.low,.st{background-color:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.7)}
+.tag.low,.st{background-color:rgba(240,176,80,.55)!important;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.st-Delivered{background-color:rgba(76,139,91,.4)!important}.st-Cancelled{background-color:rgba(192,57,43,.35)!important}
+.tick{background:rgba(76,139,91,.3)!important;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.7);box-shadow:inset 0 2px 2px rgba(255,255,255,.9)}
+.bn{border:1px solid rgba(255,255,255,.5);box-shadow:inset 0 1px 1px rgba(255,255,255,.7),var(--g-shadow)}
+.bn-s{background-image:linear-gradient(180deg,rgba(255,255,255,.22),transparent 45%)}
+.bn-d button{box-shadow:inset 0 1px 1px rgba(255,255,255,.8)}
+.mq{background:rgba(201,129,45,.72)!important;-webkit-backdrop-filter:blur(14px) saturate(180%);backdrop-filter:blur(14px) saturate(180%);border-block:1px solid rgba(255,255,255,.45);box-shadow:inset 0 1px 1px rgba(255,255,255,.6)}
+.shop-footer{background:rgba(43,27,22,.62)!important;-webkit-backdrop-filter:blur(18px) saturate(180%);backdrop-filter:blur(18px) saturate(180%);border-top:1px solid rgba(255,255,255,.22)}
+.hero .tagline{box-shadow:inset 0 1px 1px rgba(255,255,255,.5)}
+#mic{background:var(--g-fld);border:1px solid var(--g-line);box-shadow:inset 0 1px 1px var(--g-hi)}
+[data-theme=dark] .modal form label,[data-theme=dark] #checkoutView label,[data-theme=dark] .drawer,[data-theme=dark] legend{color:var(--text)}
+.lg-r .modal-box,.lg-r .mq,.lg-r .shop-footer{-webkit-backdrop-filter:blur(7px) url(#lg) saturate(180%);backdrop-filter:blur(7px) url(#lg) saturate(180%)}

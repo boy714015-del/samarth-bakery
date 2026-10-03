@@ -1,0 +1,43 @@
+/* shop-more.css — extra animations + filter/option UI */
+@keyframes fall{from{transform:translateY(-20px) rotate(0);opacity:0}15%{opacity:.9}to{transform:translateY(420px) rotate(360deg);opacity:0}}
+.spr{position:absolute;top:0;width:6px;height:12px;border-radius:3px;z-index:1;pointer-events:none;animation:fall linear infinite}
+#glow{position:fixed;left:0;top:0;width:320px;height:320px;margin:-160px 0 0 -160px;border-radius:50%;background:radial-gradient(circle,rgba(201,129,45,.22),transparent 65%);pointer-events:none;z-index:1;mix-blend-mode:multiply}
+[data-theme=dark] #glow{mix-blend-mode:screen}
+.pfx{position:fixed;z-index:400;pointer-events:none;font-weight:700;color:var(--primary-dark)}
+
+/* stats band */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;padding-top:1.2rem}
+.stats div{background:linear-gradient(135deg,var(--dark),#4a3022);color:#fff;border-radius:14px;padding:1rem;text-align:center;transition:.3s}
+.stats div:hover{transform:translateY(-4px) scale(1.02)}
+.stats b{display:block;font-family:'Fraunces',serif;font-size:1.8rem;color:#F3C277}.stats small{opacity:.8}
+
+/* filters */
+.toolbar{flex-wrap:wrap}
+.tools{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap}
+.vt{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:#fff}
+.vt button{border:0;background:none;padding:.5rem .8rem;color:var(--muted);transition:.2s}.vt .on{background:var(--dark);color:#fff}
+.chip.on{background:var(--dark);color:#fff;border-color:var(--dark)}
+.grid.list{grid-template-columns:1fr!important}
+.grid.list .card{flex-direction:row}.grid.list .card .pic{width:190px;aspect-ratio:auto;flex-shrink:0;min-height:130px}
+#fstate{text-align:center;color:var(--muted)}
+#favBtn{position:relative;width:38px;height:38px;border-radius:50%;border:1px solid #6b5546;background:transparent;color:#ff7aa8}
+#favN{position:absolute;top:-4px;right:-4px;background:#D6336C;color:#fff;border-radius:99px;min-width:18px;height:18px;font-size:.66rem;display:grid;place-items:center}
+
+/* mic */
+#mic{position:absolute;right:.6rem;top:50%;transform:translateY(-50%);width:34px;height:34px;border-radius:50%;border:0;background:var(--primary-light);color:var(--primary-dark)}
+#mic.rec{background:var(--danger);color:#fff;animation:pulse 1s infinite}
+.search input{padding-right:3rem!important}
+
+/* cake options, addons, slot chips */
+.opt{background:var(--bg);border:1px dashed var(--primary);border-radius:12px;padding:.7rem .8rem;margin-top:.5rem}
+.opt label{display:block;font-size:.8rem;font-weight:600}.opt input[type=text]{display:block;width:100%;margin-top:.25rem;padding:.55rem .7rem;border:1px solid var(--line);border-radius:8px;font:inherit}
+.opt .chk{display:flex;gap:.4rem;align-items:center;margin-top:.5rem}
+#addons{margin-top:1rem;animation:up .4s}
+#addons .ad{display:flex;align-items:center;gap:.6rem;padding:.4rem 0;font-size:.88rem}
+#addons img{width:38px;height:38px;border-radius:8px;object-fit:cover}#addons span{flex:1}
+.slots{display:flex;gap:.4rem;flex-wrap:wrap;margin:-.3rem 0 .8rem}
+.slots button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:.3rem .8rem;font-size:.76rem;font-weight:600;transition:.2s}
+.slots button:hover{background:var(--primary);color:#fff}
+.pm .pic img{transition:transform .25s}.pm .pic:hover img{transform:scale(1.8)}.pm .pic{cursor:zoom-in}
+[data-theme=dark] .vt,[data-theme=dark] .slots button{background:var(--surface);color:var(--text);border-color:var(--line)}
+@media(max-width:600px){.stats b{font-size:1.3rem}.grid.list .card .pic{width:120px}}
