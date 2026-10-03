@@ -1,0 +1,462 @@
+{
+  "bakery_products": [
+    {
+      "id": "P-1001",
+      "name": "Birthday Cake",
+      "category": "Cakes",
+      "price": 650,
+      "stock": 14,
+      "image": "images/birthday-cake.svg",
+      "status": "Active",
+      "icon": "fa-cake-candles"
+    },
+    {
+      "id": "P-1002",
+      "name": "Chocolate Cake",
+      "category": "Cakes",
+      "price": 500,
+      "stock": 18,
+      "image": "images/chocolate-cake.svg",
+      "status": "Active",
+      "icon": "fa-cake-candles"
+    },
+    {
+      "id": "P-1003",
+      "name": "Pineapple Cake",
+      "category": "Cakes",
+      "price": 480,
+      "stock": 9,
+      "image": "images/pineapple-cake.svg",
+      "status": "Active",
+      "icon": "fa-cake-candles"
+    },
+    {
+      "id": "P-1004",
+      "name": "Pastry",
+      "category": "Pastries",
+      "price": 60,
+      "stock": 40,
+      "image": "images/pastry.svg",
+      "status": "Active",
+      "icon": "fa-cookie"
+    },
+    {
+      "id": "P-1005",
+      "name": "Bread",
+      "category": "Bakery",
+      "price": 45,
+      "stock": 35,
+      "image": "images/bread.svg",
+      "status": "Active",
+      "icon": "fa-bread-slice"
+    },
+    {
+      "id": "P-1006",
+      "name": "Bun",
+      "category": "Bakery",
+      "price": 15,
+      "stock": 8,
+      "image": "images/bun.svg",
+      "status": "Active",
+      "icon": "fa-bread-slice"
+    },
+    {
+      "id": "P-1007",
+      "name": "Cream Roll",
+      "category": "Pastries",
+      "price": 35,
+      "stock": 25,
+      "image": "images/cream-roll.svg",
+      "status": "Active",
+      "icon": "fa-cookie"
+    },
+    {
+      "id": "P-1008",
+      "name": "Cookies",
+      "category": "Biscuits",
+      "price": 120,
+      "stock": 30,
+      "image": "images/cookies.svg",
+      "status": "Active",
+      "icon": "fa-cookie-bite"
+    },
+    {
+      "id": "P-1009",
+      "name": "Khari",
+      "category": "Biscuits",
+      "price": 80,
+      "stock": 22,
+      "image": "images/khari.svg",
+      "status": "Active",
+      "icon": "fa-cookie-bite"
+    },
+    {
+      "id": "P-1010",
+      "name": "Toast",
+      "category": "Bakery",
+      "price": 70,
+      "stock": 6,
+      "image": "images/toast.svg",
+      "status": "Active",
+      "icon": "fa-bread-slice"
+    },
+    {
+      "id": "P-1011",
+      "name": "Puffs",
+      "category": "Snacks",
+      "price": 30,
+      "stock": 28,
+      "image": "images/puffs.svg",
+      "status": "Active",
+      "icon": "fa-stroopwafel"
+    },
+    {
+      "id": "P-1012",
+      "name": "Donuts",
+      "category": "Snacks",
+      "price": 45,
+      "stock": 20,
+      "image": "images/donuts.svg",
+      "status": "Active",
+      "icon": "fa-stroopwafel"
+    },
+    {
+      "id": "P-1013",
+      "name": "Chocolate Cupcake",
+      "category": "Cupcakes & Muffins",
+      "price": 40,
+      "stock": 30,
+      "image": "images/chocolate-cupcake.svg",
+      "status": "Active",
+      "icon": "fa-cookie"
+    },
+    {
+      "id": "P-1014",
+      "name": "Blueberry Muffin",
+      "category": "Cupcakes & Muffins",
+      "price": 55,
+      "stock": 24,
+      "image": "images/blueberry-muffin.svg",
+      "status": "Active",
+      "icon": "fa-cookie"
+    },
+    {
+      "id": "P-1015",
+      "name": "Walnut Brownie",
+      "category": "Brownies & Desserts",
+      "price": 70,
+      "stock": 26,
+      "image": "images/walnut-brownie.svg",
+      "status": "Active",
+      "icon": "fa-ice-cream"
+    },
+    {
+      "id": "P-1016",
+      "name": "Choco Lava Cake",
+      "category": "Brownies & Desserts",
+      "price": 85,
+      "stock": 18,
+      "image": "images/choco-lava.svg",
+      "status": "Active",
+      "icon": "fa-ice-cream"
+    },
+    {
+      "id": "P-1017",
+      "name": "Veg Grilled Sandwich",
+      "category": "Sandwiches & Burgers",
+      "price": 60,
+      "stock": 20,
+      "image": "images/veg-sandwich.svg",
+      "status": "Active",
+      "icon": "fa-burger"
+    },
+    {
+      "id": "P-1018",
+      "name": "Veg Burger",
+      "category": "Sandwiches & Burgers",
+      "price": 55,
+      "stock": 20,
+      "image": "images/veg-burger.svg",
+      "status": "Active",
+      "icon": "fa-burger"
+    },
+    {
+      "id": "P-1019",
+      "name": "Cold Coffee",
+      "category": "Drinks & Shakes",
+      "price": 70,
+      "stock": 25,
+      "image": "images/cold-coffee.svg",
+      "status": "Active",
+      "icon": "fa-mug-hot"
+    },
+    {
+      "id": "P-1020",
+      "name": "Chocolate Shake",
+      "category": "Drinks & Shakes",
+      "price": 90,
+      "stock": 25,
+      "image": "images/chocolate-shake.svg",
+      "status": "Active",
+      "icon": "fa-mug-hot"
+    },
+    {
+      "id": "P-1021",
+      "name": "Eggless Black Forest",
+      "category": "Eggless Cakes",
+      "price": 520,
+      "stock": 10,
+      "image": "images/eggless-black-forest.svg",
+      "status": "Active",
+      "icon": "fa-cake-candles"
+    },
+    {
+      "id": "P-1022",
+      "name": "Eggless Butterscotch",
+      "category": "Eggless Cakes",
+      "price": 500,
+      "stock": 10,
+      "image": "images/eggless-butterscotch.svg",
+      "status": "Active",
+      "icon": "fa-cake-candles"
+    }
+  ],
+  "bakery_customers": [
+    {
+      "id": "C-2001",
+      "name": "Rohan Patil",
+      "mobile": "9876543210",
+      "totalOrders": 3,
+      "totalSpent": 1415,
+      "lastOrder": "2026-10-03T04:45:00.000Z"
+    },
+    {
+      "id": "C-2002",
+      "name": "Sneha Kulkarni",
+      "mobile": "9822345671",
+      "totalOrders": 3,
+      "totalSpent": 855,
+      "lastOrder": "2026-10-03T06:45:00.000Z"
+    },
+    {
+      "id": "C-2003",
+      "name": "Amit Deshmukh",
+      "mobile": "9765432109",
+      "totalOrders": 3,
+      "totalSpent": 1490,
+      "lastOrder": "2026-10-03T09:45:00.000Z"
+    }
+  ],
+  "bakery_orders": [
+    {
+      "id": "ORD-3001",
+      "customerName": "Rohan Patil",
+      "mobile": "9876543210",
+      "items": [
+        {
+          "productId": "P-1002",
+          "name": "Chocolate Cake",
+          "price": 500,
+          "qty": 1
+        },
+        {
+          "productId": "P-1004",
+          "name": "Pastry",
+          "price": 60,
+          "qty": 4
+        }
+      ],
+      "total": 740,
+      "paymentMethod": "UPI",
+      "status": "Delivered",
+      "dateTime": "2026-10-03T04:45:00.000Z"
+    },
+    {
+      "id": "ORD-3002",
+      "customerName": "Sneha Kulkarni",
+      "mobile": "9822345671",
+      "items": [
+        {
+          "productId": "P-1005",
+          "name": "Bread",
+          "price": 45,
+          "qty": 2
+        },
+        {
+          "productId": "P-1006",
+          "name": "Bun",
+          "price": 15,
+          "qty": 6
+        }
+      ],
+      "total": 180,
+      "paymentMethod": "Cash",
+      "status": "Delivered",
+      "dateTime": "2026-10-03T06:45:00.000Z"
+    },
+    {
+      "id": "ORD-3003",
+      "customerName": "Amit Deshmukh",
+      "mobile": "9765432109",
+      "items": [
+        {
+          "productId": "P-1001",
+          "name": "Birthday Cake",
+          "price": 650,
+          "qty": 1
+        }
+      ],
+      "total": 650,
+      "paymentMethod": "Card",
+      "status": "Preparing",
+      "dateTime": "2026-10-03T09:45:00.000Z"
+    },
+    {
+      "id": "ORD-3004",
+      "customerName": "Rohan Patil",
+      "mobile": "9876543210",
+      "items": [
+        {
+          "productId": "P-1008",
+          "name": "Cookies",
+          "price": 120,
+          "qty": 2
+        },
+        {
+          "productId": "P-1012",
+          "name": "Donuts",
+          "price": 45,
+          "qty": 4
+        }
+      ],
+      "total": 420,
+      "paymentMethod": "UPI",
+      "status": "Delivered",
+      "dateTime": "2026-10-02T05:45:00.000Z"
+    },
+    {
+      "id": "ORD-3005",
+      "customerName": "Sneha Kulkarni",
+      "mobile": "9822345671",
+      "items": [
+        {
+          "productId": "P-1007",
+          "name": "Cream Roll",
+          "price": 35,
+          "qty": 5
+        }
+      ],
+      "total": 175,
+      "paymentMethod": "Cash",
+      "status": "Delivered",
+      "dateTime": "2026-10-01T03:45:00.000Z"
+    },
+    {
+      "id": "ORD-3006",
+      "customerName": "Amit Deshmukh",
+      "mobile": "9765432109",
+      "items": [
+        {
+          "productId": "P-1003",
+          "name": "Pineapple Cake",
+          "price": 480,
+          "qty": 1
+        },
+        {
+          "productId": "P-1011",
+          "name": "Puffs",
+          "price": 30,
+          "qty": 3
+        }
+      ],
+      "total": 570,
+      "paymentMethod": "UPI",
+      "status": "Delivered",
+      "dateTime": "2026-09-30T10:45:00.000Z"
+    },
+    {
+      "id": "ORD-3007",
+      "customerName": "Rohan Patil",
+      "mobile": "9876543210",
+      "items": [
+        {
+          "productId": "P-1010",
+          "name": "Toast",
+          "price": 70,
+          "qty": 2
+        },
+        {
+          "productId": "P-1009",
+          "name": "Khari",
+          "price": 80,
+          "qty": 1
+        }
+      ],
+      "total": 220,
+      "paymentMethod": "Cash",
+      "status": "Cancelled",
+      "dateTime": "2026-09-29T04:45:00.000Z"
+    },
+    {
+      "id": "ORD-3008",
+      "customerName": "Sneha Kulkarni",
+      "mobile": "9822345671",
+      "items": [
+        {
+          "productId": "P-1002",
+          "name": "Chocolate Cake",
+          "price": 500,
+          "qty": 1
+        }
+      ],
+      "total": 500,
+      "paymentMethod": "Card",
+      "status": "Delivered",
+      "dateTime": "2026-09-28T07:45:00.000Z"
+    },
+    {
+      "id": "ORD-3009",
+      "customerName": "Amit Deshmukh",
+      "mobile": "9765432109",
+      "items": [
+        {
+          "productId": "P-1012",
+          "name": "Donuts",
+          "price": 45,
+          "qty": 6
+        }
+      ],
+      "total": 270,
+      "paymentMethod": "UPI",
+      "status": "Delivered",
+      "dateTime": "2026-09-26T11:45:00.000Z"
+    },
+    {
+      "id": "ORD-3010",
+      "customerName": "Rohan Patil",
+      "mobile": "9876543210",
+      "items": [
+        {
+          "productId": "P-1005",
+          "name": "Bread",
+          "price": 45,
+          "qty": 3
+        },
+        {
+          "productId": "P-1008",
+          "name": "Cookies",
+          "price": 120,
+          "qty": 1
+        }
+      ],
+      "total": 255,
+      "paymentMethod": "Cash",
+      "status": "Delivered",
+      "dateTime": "2026-09-24T04:45:00.000Z"
+    }
+  ],
+  "bakery_inventory_log": [],
+  "bakery_users": [],
+  "sessions": {},
+  "meta_v7_products": true
+}
