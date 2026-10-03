@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Samarth Bakery — Order Online</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#ffd9c0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/shop.css">
+<link rel="stylesheet" href="css/shop-extra.css">
+<link rel="stylesheet" href="css/shop-style.css">
+<link rel="stylesheet" href="css/shop-more.css">
+<link rel="stylesheet" href="css/shop-glass.css">
+<link rel="stylesheet" href="css/ios26.css">
+</head>
+<body>
+
+<header class="shop-header">
+  <div class="wrap header-row">
+    <a class="brand" href="shop.html"><span class="mark"><i class="fa-solid fa-cookie-bite"></i></span> Samarth Bakery</a>
+    <div class="hdr-right"><a class="admin-link" href="index.html"><i class="fa-solid fa-user-shield"></i> <span class="cart-label">Admin login</span></a><span id="authArea"></span>
+    <button class="cart-btn" id="openCart" aria-label="Open cart">
+      <i class="fa-solid fa-basket-shopping"></i> <span class="cart-label">Cart</span>
+      <span class="cart-count" id="cartCount">0</span>
+    </button></div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>Freshly baked, <em>delivered to you.</em></h1>
+    <p>Choose your favourite cakes, pastries, breads and snacks — order in a minute.</p>
+    <div class="search-row">
+      <div class="search"><i class="fa-solid fa-magnifying-glass"></i><input id="search" type="text" placeholder="Search cakes, bread, cookies..."></div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap perks">
+  <div><i class="fa-solid fa-wheat-awn"></i><b>Baked fresh daily</b><small>Every morning, no leftovers</small></div>
+  <div><i class="fa-solid fa-motorcycle"></i><b>Delivery or pickup</b><small>Your choice, your time slot</small></div>
+  <div><i class="fa-solid fa-cake-candles"></i><b>Custom cakes</b><small>Add your message in the order note</small></div>
+  <div><i class="fa-solid fa-heart"></i><b>Save favourites</b><small>Login to track and reorder</small></div>
+</section>
+
+<main class="wrap">
+  <div class="chips" id="chips"></div>
+  <div class="toolbar">
+    <button class="chip" id="favOnly"><i class="fa-regular fa-heart"></i> Favourites</button>
+    <select id="sort" aria-label="Sort"><option value="default">Sort: Recommended</option><option value="plh">Price: Low to High</option><option value="phl">Price: High to Low</option><option value="az">Name: A to Z</option></select>
+  </div>
+  <div class="grid" id="grid"></div>
+  <div class="state" id="state"></div>
+</main>
+
+<footer class="shop-footer">
+  <div class="wrap">© Samarth Bakery · <a href="index.html">Admin login</a> · <a href="#" data-open="login">Customer login</a> · <a href="#" data-open="register">Register</a></div>
+</footer>
+
+<!-- Cart drawer -->
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="drawer" aria-label="Your cart">
+  <div class="drawer-head">
+    <h2 id="drawerTitle">Your cart</h2>
+    <button class="icon-btn" id="closeCart" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+
+  <div class="drawer-body" id="cartView">
+    <div id="cartItems"></div>
+  </div>
+  <div class="drawer-foot" id="cartFoot">
+    <div class="total-row"><span>Total</span><strong id="cartTotal">₹0</strong></div>
+    <button class="btn" id="toCheckout">Proceed to order</button>
+  </div>
+
+  <div class="drawer-body hidden" id="ordersView"><div id="ordersList"></div></div>
+
+  <form class="drawer-body hidden" id="checkoutView" novalidate>
+    <button type="button" class="link-back" id="backToCart"><i class="fa-solid fa-arrow-left"></i> Back to cart</button>
+    <div class="err" id="formError"></div>
+    <label>Your name<input name="customerName" type="text" placeholder="e.g. Rohan Patil" required></label>
+    <label>Mobile number<input name="mobile" type="tel" inputmode="numeric" maxlength="10" placeholder="10-digit mobile" required></label>
+    <fieldset>
+      <legend>Get it by</legend>
+      <label class="radio"><input type="radio" name="fulfilment" value="Delivery" checked> Home delivery</label>
+      <label class="radio"><input type="radio" name="fulfilment" value="Pickup"> Pickup from shop</label>
+    </fieldset>
+    <label>Delivery address <small>(required for delivery)</small><textarea name="address" rows="2" placeholder="House no, street, area"></textarea></label>
+    <label>Preferred date &amp; time <small>(optional)</small><input name="slot" type="datetime-local"></label>
+    <label>Note for the bakery <small>(optional)</small><input name="note" type="text" placeholder="e.g. Write 'Happy Birthday' on cake"></label>
+    <fieldset>
+      <legend>Payment</legend>
+      <label class="radio"><input type="radio" name="paymentMethod" value="Cash" checked> Cash</label>
+      <label class="radio"><input type="radio" name="paymentMethod" value="UPI"> UPI</label>
+      <label class="radio"><input type="radio" name="paymentMethod" value="Card"> Card</label>
+    </fieldset>
+    <div class="total-row"><span>Total</span><strong id="checkoutTotal">₹0</strong></div>
+    <button class="btn" type="submit" id="placeBtn"><i class="fa-solid fa-check"></i> Place order</button>
+  </form>
+
+  <div class="drawer-body hidden success" id="successView">
+    <div class="tick"><i class="fa-solid fa-check"></i></div>
+    <h3>Order placed!</h3>
+    <p>Thank you, <b id="okName"></b>. Your order number is</p>
+    <div class="order-id" id="okId"></div>
+    <p class="muted">Total: <b id="okTotal"></b> · Payment: <b id="okPay"></b><br>We will start preparing it right away.</p>
+    <button class="btn" id="newOrder">Order something else</button>
+  </div>
+</aside>
+
+<!-- Login / Register -->
+<div class="modal" id="authModal"><div class="modal-box">
+  <button class="icon-btn modal-x" data-close aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+  <div class="tabs"><button data-tab="login" class="active">Login</button><button data-tab="register">New user? Register</button></div>
+  <form data-mode="login" novalidate>
+    <div class="err"></div>
+    <label>Mobile number<input name="mobile" type="tel" inputmode="numeric" maxlength="10" placeholder="10-digit mobile" autocomplete="username"></label>
+    <label>Password<input name="password" type="password" placeholder="Your password" autocomplete="current-password"></label>
+    <button class="btn" type="submit">Login</button>
+  </form>
+  <form data-mode="register" class="hidden" novalidate>
+    <div class="err"></div>
+    <label>Full name<input name="name" type="text" placeholder="e.g. Rohan Patil" autocomplete="name"></label>
+    <label>Mobile number<input name="mobile" type="tel" inputmode="numeric" maxlength="10" placeholder="10-digit mobile" autocomplete="username"></label>
+    <label>Delivery address <small>(optional)</small><textarea name="address" rows="2" placeholder="House no, street, area"></textarea></label>
+    <label>Password<input name="password" type="password" placeholder="At least 6 characters" autocomplete="new-password"></label>
+    <label>Confirm password<input name="confirm" type="password" placeholder="Repeat password" autocomplete="new-password"></label>
+    <button class="btn" type="submit">Create account</button>
+  </form>
+</div></div>
+
+<!-- Product details -->
+<div class="modal" id="prodModal"><div class="modal-box wide">
+  <button class="icon-btn modal-x" data-close aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+  <div id="prodBody"></div>
+</div></div>
+
+<div class="toast" id="toast"></div>
+<script src="js/shop.js"></script>
+<script src="js/shop-extra.js"></script>
+<script src="js/shop-style.js"></script>
+<script src="js/shop-more.js"></script>
+<script src="js/shop-glass.js"></script>
+<script src="js/ios26.js"></script>
+</body>
+</html>

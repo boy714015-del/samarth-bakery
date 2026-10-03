@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Samarth Bakery — Admin Login</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/glass-admin.css">
+<link rel="stylesheet" href="css/ios26-admin.css">
+</head>
+<body>
+
+<div class="login-wrap">
+  <div class="login-art">
+    <div>
+      <div class="mark"><i class="fa-solid fa-cookie-bite" style="color:#fff;"></i></div>
+      <h1>Samarth<br>Bakery</h1>
+      <p>Admin dashboard for daily orders, billing, inventory and sales — everything the bakery counter needs, in one place.</p>
+    </div>
+    <div class="quote">"Freshly baked, freshly tracked — every order, every day."</div>
+  </div>
+
+  <div class="login-form-side">
+    <div class="login-card">
+      <h2>Welcome back</h2>
+      <p class="lead">Sign in to manage Samarth Bakery</p>
+
+      <div class="login-error" id="loginError">Invalid username or password. Please try again.</div>
+
+      <form id="loginForm">
+        <div class="form-group mb-2">
+          <label for="loginUser">Username</label>
+          <input type="text" id="loginUser" class="field" placeholder="admin" autocomplete="username" required>
+        </div>
+        <div class="form-group mb-2">
+          <label for="loginPass">Password</label>
+          <input type="password" id="loginPass" class="field" placeholder="••••••••" autocomplete="current-password" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block"><i class="fa-solid fa-right-to-bracket"></i> Sign in</button>
+      </form>
+
+      <div class="login-hint" style="margin-bottom:.8rem">
+        Customer? <a href="shop.html#login"><b>Customer login</b></a> · <a href="shop.html#register"><b>New user? Register</b></a>
+      </div>
+
+      <div class="login-hint">
+        <strong>Demo credentials</strong><br>
+        Username: <code>admin</code> &nbsp; Password: <code>admin123</code>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/script.js"></script>
+<script>
+  document.getElementById('loginForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const user = document.getElementById('loginUser').value.trim();
+    const pass = document.getElementById('loginPass').value.trim();
+    const errBox = document.getElementById('loginError');
+    if(user.toLowerCase()==='admin' && pass==='admin123'){
+      localStorage.setItem(STORE_KEYS.session, JSON.stringify({name:'Admin User', loggedInAt:new Date().toISOString()}));
+      window.location.href = 'dashboard.html';
+    }else{
+      errBox.style.display = 'block';
+    }
+  });
+</script>
+<script src="js/glass-admin.js"></script>
+</body>
+</html>

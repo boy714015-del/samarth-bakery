@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Reports — Samarth Bakery</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/glass-admin.css">
+<link rel="stylesheet" href="css/ios26-admin.css">
+</head>
+<body>
+<div class="app">
+
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="mark"><i class="fa-solid fa-cookie-bite" style="color:#fff;"></i></div>
+      <div><div class="name">Samarth Bakery</div><div class="tag">Admin Dashboard</div></div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="sidebar-section-label">Overview</div>
+      <a href="dashboard.html" data-page="dashboard"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+      <a href="sales.html" data-page="sales"><i class="fa-solid fa-chart-line"></i> Sales</a>
+      <div class="sidebar-section-label">Operations</div>
+      <a href="billing.html" data-page="billing"><i class="fa-solid fa-cash-register"></i> Billing / POS</a>
+      <a href="orders.html" data-page="orders"><i class="fa-solid fa-receipt"></i> Orders</a>
+      <a href="products.html" data-page="products"><i class="fa-solid fa-cookie"></i> Products</a>
+      <a href="inventory.html" data-page="inventory"><i class="fa-solid fa-boxes-stacked"></i> Inventory</a>
+      <div class="sidebar-section-label">People &amp; Insights</div>
+      <a href="customers.html" data-page="customers"><i class="fa-solid fa-users"></i> Customers</a>
+      <a href="reports.html" data-page="reports"><i class="fa-solid fa-file-lines"></i> Reports</a>
+    </nav>
+    <div class="sidebar-foot">
+      <div class="sidebar-user">
+        <div class="avatar js-user-initial">A</div>
+        <div><div class="who js-user-name">Admin User</div><div class="role">Bakery Manager</div></div>
+      </div>
+      <button class="logout-btn"><i class="fa-solid fa-arrow-right-from-bracket"></i> Log out</button>
+    </div>
+  </aside>
+  <div class="sidebar-backdrop"></div>
+
+  <div class="main">
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+        <div>
+          <h1 class="page-title">Reports</h1>
+          <div class="page-subtitle">Revenue, products and customers at a glance</div>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <span class="topbar-date"></span>
+        <div class="topbar-avatar js-user-initial">A</div>
+      </div>
+    </header>
+
+    <main class="content">
+      <div class="content-inner" id="reportsRoot">
+
+        <div class="toolbar">
+          <div></div>
+          <div class="toolbar-right">
+            <button class="btn btn-outline" onclick="printReports()"><i class="fa-solid fa-print"></i> Print Report</button>
+          </div>
+        </div>
+
+        <div class="grid grid-stats mb-2">
+          <div class="card stat-card">
+            <div class="stat-top"><div><div class="stat-label">Daily Sales Report</div><div class="stat-value" id="reportDaily">₹0</div></div><div class="stat-icon tone-amber"><i class="fa-solid fa-sun"></i></div></div>
+          </div>
+          <div class="card stat-card">
+            <div class="stat-top"><div><div class="stat-label">Weekly Sales Report</div><div class="stat-value" id="reportWeekly">₹0</div></div><div class="stat-icon tone-berry"><i class="fa-solid fa-calendar-week"></i></div></div>
+          </div>
+          <div class="card stat-card">
+            <div class="stat-top"><div><div class="stat-label">Monthly Sales Report</div><div class="stat-value" id="reportMonthly">₹0</div></div><div class="stat-icon tone-green"><i class="fa-solid fa-calendar-days"></i></div></div>
+          </div>
+          <div class="card stat-card">
+            <div class="stat-top"><div><div class="stat-label">Total Revenue</div><div class="stat-value" id="reportTotalRevenue">₹0</div></div><div class="stat-icon tone-warn"><i class="fa-solid fa-coins"></i></div></div>
+          </div>
+        </div>
+
+        <div class="card mb-2">
+          <div class="card-head"><h3>Last 14 days</h3></div>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead><tr><th>Date</th><th>Orders</th><th>Revenue</th></tr></thead>
+              <tbody id="periodReportBody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="grid grid-2">
+          <div class="card">
+            <div class="card-head"><h3>Product-wise sales</h3></div>
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead><tr><th>Product</th><th>Qty sold</th><th>Revenue</th></tr></thead>
+                <tbody id="productWiseBody"></tbody>
+              </table>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-head"><h3>Customer-wise sales</h3></div>
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead><tr><th>Customer</th><th>Mobile</th><th>Orders</th><th>Total spent</th></tr></thead>
+                <tbody id="customerWiseBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+</div>
+
+<script src="js/script.js"></script>
+<script src="js/reports.js"></script>
+<script src="js/glass-admin.js"></script>
+</body>
+</html>

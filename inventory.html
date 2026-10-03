@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Inventory — Samarth Bakery</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/glass-admin.css">
+<link rel="stylesheet" href="css/ios26-admin.css">
+</head>
+<body>
+<div class="app">
+
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="mark"><i class="fa-solid fa-cookie-bite" style="color:#fff;"></i></div>
+      <div><div class="name">Samarth Bakery</div><div class="tag">Admin Dashboard</div></div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="sidebar-section-label">Overview</div>
+      <a href="dashboard.html" data-page="dashboard"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+      <a href="sales.html" data-page="sales"><i class="fa-solid fa-chart-line"></i> Sales</a>
+      <div class="sidebar-section-label">Operations</div>
+      <a href="billing.html" data-page="billing"><i class="fa-solid fa-cash-register"></i> Billing / POS</a>
+      <a href="orders.html" data-page="orders"><i class="fa-solid fa-receipt"></i> Orders</a>
+      <a href="products.html" data-page="products"><i class="fa-solid fa-cookie"></i> Products</a>
+      <a href="inventory.html" data-page="inventory"><i class="fa-solid fa-boxes-stacked"></i> Inventory</a>
+      <div class="sidebar-section-label">People &amp; Insights</div>
+      <a href="customers.html" data-page="customers"><i class="fa-solid fa-users"></i> Customers</a>
+      <a href="reports.html" data-page="reports"><i class="fa-solid fa-file-lines"></i> Reports</a>
+    </nav>
+    <div class="sidebar-foot">
+      <div class="sidebar-user">
+        <div class="avatar js-user-initial">A</div>
+        <div><div class="who js-user-name">Admin User</div><div class="role">Bakery Manager</div></div>
+      </div>
+      <button class="logout-btn"><i class="fa-solid fa-arrow-right-from-bracket"></i> Log out</button>
+    </div>
+  </aside>
+  <div class="sidebar-backdrop"></div>
+
+  <div class="main">
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+        <div>
+          <h1 class="page-title">Inventory</h1>
+          <div class="page-subtitle">Keep stock levels accurate and up to date</div>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <span class="topbar-date"></span>
+        <div class="topbar-avatar js-user-initial">A</div>
+      </div>
+    </header>
+
+    <main class="content">
+      <div class="content-inner" id="inventoryRoot">
+
+        <div class="grid grid-3 mb-2">
+          <div class="card stat-card">
+            <div class="stat-top"><div><div class="stat-label">Total Products</div><div class="stat-value" id="inventoryProductCount">0</div></div><div class="stat-icon tone-amber"><i class="fa-solid fa-cookie"></i></div></div>
+          </div>
+          <div class="card stat-card">
+            <div class="stat-top"><div><div class="stat-label">Total Units in Stock</div><div class="stat-value" id="inventoryTotalItems">0</div></div><div class="stat-icon tone-green"><i class="fa-solid fa-boxes-stacked"></i></div></div>
+          </div>
+          <div class="card stat-card">
+            <div class="stat-top"><div><div class="stat-label">Low Stock Alerts</div><div class="stat-value" id="inventoryLowCount">0</div></div><div class="stat-icon tone-red"><i class="fa-solid fa-triangle-exclamation"></i></div></div>
+          </div>
+        </div>
+
+        <div class="toolbar">
+          <div class="toolbar-left">
+            <div class="search-box">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" id="inventorySearch" placeholder="Search products...">
+            </div>
+          </div>
+        </div>
+
+        <div class="card mb-2">
+          <div class="card-head"><h3>Product stock</h3></div>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead><tr><th>Product</th><th>Category</th><th>Stock</th><th>Level</th><th>Update stock</th></tr></thead>
+              <tbody id="inventoryBody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><h3>Inventory history</h3><div class="sub" style="margin-left:auto;font-size:.78rem;color:var(--muted);">Most recent 25 movements</div></div>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead><tr><th>Product</th><th>Movement</th><th>Qty</th><th>Note</th><th>Date &amp; Time</th></tr></thead>
+              <tbody id="inventoryHistoryBody"></tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- Stock In / Out Modal -->
+<div class="modal-backdrop" id="stockModal">
+  <div class="modal">
+    <div class="modal-head">
+      <h3 id="stockModalTitle">Update Stock</h3>
+      <button class="modal-close" onclick="closeStockModal()"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <form id="stockForm" onsubmit="submitStockForm(event)">
+      <div class="modal-body">
+        <p class="text-muted" style="font-size:.85rem;">Current stock: <strong id="stockCurrentQty">0</strong> units</p>
+        <div class="form-group mb-2">
+          <label>Quantity</label>
+          <input type="number" name="qty" class="field" min="1" required>
+        </div>
+        <div class="form-group">
+          <label>Note (optional)</label>
+          <input type="text" name="note" class="field" placeholder="e.g. New batch from supplier">
+        </div>
+      </div>
+      <div class="modal-foot">
+        <button type="button" class="btn btn-outline" onclick="closeStockModal()">Cancel</button>
+        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-check"></i> Update Stock</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="js/script.js"></script>
+<script src="js/inventory.js"></script>
+<script src="js/glass-admin.js"></script>
+</body>
+</html>

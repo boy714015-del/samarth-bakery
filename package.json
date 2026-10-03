@@ -1,0 +1,14 @@
+{
+  "name": "samarth-bakery",
+  "version": "1.0.0",
+  "description": "Samarth Bakery - admin dashboard + customer ordering (Express, JSON file storage)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "photos": "node fetch-photos.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
